@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Date Time</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">
+          <div class="glass">
+            <div class="date">
+                <h2>Current Date : </h2>
+              <h2 id="currentDate"></h2>
+            </div>
+          <div class="time">
+            <h2 id="currentTime"></h2>
+            <span id="span"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+        timer()
+     function timer(){
+        var today = new Date();
+        var date =
+          today.getFullYear() +
+          "-" +
+          (today.getMonth() + 1) +
+          "-" +
+          today.getDate();
+        document.getElementById("currentDate").innerHTML = date;
+        var today = new Date();
+        var time =
+          today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        document.getElementById("currentTime").innerHTML = time;
+        var today = new Date();
+        var date =
+          today.getFullYear() +
+          "-" +
+          (today.getMonth() + 1) +
+          "-" +
+          today.getDate();
+  
+        var date = new Date();
+        var hours = date.getHours();
+        var minutes = date.getMinutes();
+        var seconds = date.getSeconds();
+  
+        // Check whether AM or PM
+        var newformat = hours >= 12 ? "PM" : "AM";
+  
+        // Find current hour in AM-PM Format
+        hours = hours % 12;
+  
+        // To display "0" as "12"
+        hours = hours ? hours : 12;
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+  
+        document.getElementById("currentTime").innerHTML = hours + ":" + minutes + ":" + seconds;
+        document.getElementById("span").innerHTML = newformat;
+
+        setTimeout(timer, 1000)
+     }
+    </script>
+  </body>
+</html>
